@@ -1,0 +1,8 @@
+streamlit
+opencv-python-headless
+deepface
+pandas
+matplotlib
+groq
+tensorflow-cpu
+tf-keras
