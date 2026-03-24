@@ -1,8 +1,7 @@
 streamlit
 opencv-python-headless
-deepface==0.0.92
+deepface==0.0.89
 pandas
 matplotlib
 groq
-tensorflow-cpu
-tf-keras
+tensorflow-cpu==2.15.0
