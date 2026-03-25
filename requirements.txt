@@ -4,4 +4,4 @@ deepface==0.0.89
 pandas
 matplotlib
 groq
-tensorflow-cpu==2.15.0
+tensorflow-cpu
