@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
 
-st.title("📊 Behavioral Analytics")
+st.title("📊 Behavioral Analytics Dashboard")
 
 if not st.session_state.data:
     st.warning("No data found. Capture expressions on the Main Page first.")
