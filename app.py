@@ -7,7 +7,7 @@ import numpy as np
 
 st.set_page_config(page_title="Micro-Expression AI Pro", layout="wide")
 
-# Styling
+# Custom CSS for a professional dark theme
 st.markdown("""
     <style>
     .main { background-color: #0E1117; color: white; }
@@ -19,7 +19,7 @@ if "data" not in st.session_state:
     st.session_state.data = []
 
 st.title("👁️ Micro-Expression Neural Analyst")
-st.write("Project by Pallem Deva Sathwik")
+st.write("Lead Developer: **Pallem Deva Sathwik**")
 
 col1, col2 = st.columns([2, 1])
 
@@ -29,7 +29,7 @@ with col1:
         file_bytes = np.frombuffer(img_file.getvalue(), np.uint8)
         frame = cv2.imdecode(file_bytes, cv2.IMREAD_COLOR)
         try:
-            with st.spinner("Analyzing Neural Patterns..."):
+            with st.spinner("Analyzing Facial Patterns..."):
                 res = DeepFace.analyze(img_path=frame, actions=['emotion'], enforce_detection=False)
                 emo = res[0]['dominant_emotion']
                 st.session_state.data.append({
@@ -39,12 +39,11 @@ with col1:
                 })
                 st.success(f"Detection Successful: {emo.upper()}")
         except Exception as e:
-            st.error("Face not detected. Please ensure clear lighting.")
+            st.error("Face not detected. Ensure clear lighting.")
 
 with col2:
-    st.subheader("⚡ Real-time Metrics")
+    st.subheader("⚡ Live Metrics")
     if st.session_state.data:
         latest = st.session_state.data[-1]
         st.metric("Current State", latest["Emotion"].upper(), f"{latest['Intensity']}%")
         st.dataframe(pd.DataFrame(st.session_state.data).tail(5))
-
